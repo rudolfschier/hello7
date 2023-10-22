@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello7-deployment
+  namespace: hello7
+  labels:
+    app: hello7-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello7-deployment
+  template:
+    metadata:
+      name: hello7-deployment
+      labels:
+        app: hello7-deployment
+    spec:
+      containers:
+        - name: hello7-deployment
+          image: rudolfschier/hello7:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+      restartPolicy: Always
