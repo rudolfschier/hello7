@@ -53,7 +53,7 @@ pipeline {
         stage('deploy to k8s job') {
             steps {
                 script {
-                    build "${inputProjectName}_Deploy"
+                    build "${inputProjectName}"
                 }
             }
         }
